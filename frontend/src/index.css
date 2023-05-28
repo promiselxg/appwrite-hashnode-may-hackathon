@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Bebas';
+  src: url('./assets/fonts/Bebas/BebasNeue-Regular.ttf');
+}
+@font-face {
+  font-family: 'Inter-600';
+  src: url('./assets/fonts/Inter/Inter-Bold.ttf');
+}
+@font-face {
+  font-family: 'Inter-400';
+  src: url('./assets/fonts/Inter/Inter-Medium.ttf');
+}
+@font-face {
+  font-family: 'Poppins-600';
+  src: url('./assets/fonts/Poppins/Poppins-Bold.ttf');
+}
+@font-face {
+  font-family: 'Poppins-400';
+  src: url('./assets/fonts/Poppins/Poppins-Medium.ttf');
+}
