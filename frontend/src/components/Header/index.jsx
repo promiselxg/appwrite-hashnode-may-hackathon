@@ -3,9 +3,24 @@ import { AiOutlineLogout } from 'react-icons/ai';
 import { FiChevronDown, FiUser, FiUsers } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import FormToggleContext from '../../contexts/FormToggleContext';
+import { AuthContext } from '../../contexts/AuthContext';
+import { Client, Account } from 'appwrite';
 
 const MobileHeader = () => {
   const { modal, switchScreen } = useContext(FormToggleContext);
+  const { dispatch } = useContext(AuthContext);
+
+  const handleLogout = async () => {
+    const client = new Client();
+    const account = new Account(client);
+    client
+      .setEndpoint(import.meta.env.VITE_APPWRITE_ENDPOINT) // Your API Endpoint
+      .setProject(import.meta.env.VITE_PROJECT_ID);
+    await account.deleteSession('current');
+    dispatch({
+      type: 'LOGOUT',
+    });
+  };
   return (
     <>
       <div className="md:hidden w-full bg-[#011B33] h-[80px] flex justify-between items-center px-10 shadow-md text-white mb-5 ">
@@ -41,10 +56,10 @@ const MobileHeader = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <label onClick={handleLogout}>
                   <AiOutlineLogout />
                   Logout
-                </Link>
+                </label>
               </li>
             </ul>
           </div>

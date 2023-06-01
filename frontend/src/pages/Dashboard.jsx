@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import MobileHeader from '../components/Header';
+import { AuthContext } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user || user === null) {
+      navigate('/');
+    }
+  }, [navigate, user]);
   return (
     <>
       <div className="container w-full">

@@ -14,6 +14,7 @@ import AdminPage from './pages/AdminPage';
 import PhoneBookPage from './pages/PhoneBookPage';
 import Dashboard from './pages/Dashboard';
 import { FormToggleProvider } from './contexts/FormToggleContext';
+import { AuthContextProvider } from './contexts/AuthContext';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,8 +33,10 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <FormToggleProvider>
-      <RouterProvider router={router} />
-    </FormToggleProvider>
+    <AuthContextProvider>
+      <FormToggleProvider>
+        <RouterProvider router={router} />
+      </FormToggleProvider>
+    </AuthContextProvider>
   </React.StrictMode>
 );

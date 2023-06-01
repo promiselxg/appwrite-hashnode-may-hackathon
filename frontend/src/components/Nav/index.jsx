@@ -4,9 +4,24 @@ import { FiSend, FiUser, FiUsers } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import FormToggleContext from '../../contexts/FormToggleContext';
 import BulkModal from '../Modal';
+import { AuthContext } from '../../contexts/AuthContext';
+import { Client, Account } from 'appwrite';
 
 const Nav = () => {
   const { modal, switchScreen } = useContext(FormToggleContext);
+  const { dispatch } = useContext(AuthContext);
+
+  const handleLogout = async () => {
+    const client = new Client();
+    const account = new Account(client);
+    client
+      .setEndpoint(import.meta.env.VITE_APPWRITE_ENDPOINT) // Your API Endpoint
+      .setProject(import.meta.env.VITE_PROJECT_ID);
+    await account.deleteSession('current');
+    dispatch({
+      type: 'LOGOUT',
+    });
+  };
   return (
     <>
       <div className="hidden md:flex md:flex-col md:w-[17%] bg-[#011B33] text-[#ccc] font-Inter_600 relative h-screen ">
@@ -17,7 +32,10 @@ const Nav = () => {
           <div className="rounded-full h-[50px] w-[50px] bg-[yellow]"></div>
           <h1 className="text-sm">Anuforo Okechukwu</h1>
           <button>
-            <AiOutlineLogout className="text-[30px] text-[#fff]" />
+            <AiOutlineLogout
+              className="text-[30px] text-[#fff]"
+              onClick={handleLogout}
+            />
           </button>
         </div>
         <nav className="flex flex-col px-5 gap-y-4">
