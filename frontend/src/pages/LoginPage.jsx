@@ -3,7 +3,7 @@ import { AiFillGoogleCircle, AiOutlineGithub } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 import Swal from 'sweetalert2';
-import { Client, Account } from 'appwrite';
+import { account } from '../config/appwrite.config';
 
 const LoginPage = () => {
   const { loading, user, dispatch } = useContext(AuthContext);
@@ -25,10 +25,6 @@ const LoginPage = () => {
         });
         dispatch({ type: 'LOGIN_FAILURE' });
       } else {
-        const client = new Client()
-          .setEndpoint(import.meta.env.VITE_APPWRITE_ENDPOINT)
-          .setProject(import.meta.env.VITE_PROJECT_ID);
-        const account = new Account(client);
         const response = await account.createEmailSession(
           userData.email,
           userData.password

@@ -23,9 +23,9 @@ const registerUser = asyncHandler(async (req, res) => {
     const client = new sdk.Client();
     const users = new sdk.Users(client);
     client
-      .setEndpoint(process.env.APP_ENDPOINT) // Your API Endpoint
-      .setProject(process.env.PROJECT_ID) // Your project ID
-      .setKey(process.env.API_SECRET_KEY); // Your secret API key
+      .setEndpoint(process.env.APP_ENDPOINT)
+      .setProject(process.env.PROJECT_ID)
+      .setKey(process.env.API_SECRET_KEY);
 
     const response = await users.createBcryptUser(uuidv4(), email, password);
     delete response.password;
