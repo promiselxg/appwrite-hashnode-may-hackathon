@@ -44,6 +44,24 @@ const LoginPage = () => {
     }
   };
 
+  const loginWithGoogle = async (e) => {
+    e.preventDefault();
+    try {
+      // const response = await account.createOAuth2Session(
+      //   'google',
+      //   'http://localhost:5173/'
+      // );
+      // await appwrite.account.createOAuth2Session(
+      //     "auth0",
+      //     "http://localhost:5173/admin/auth/oauth2/success",
+      //     "[YOUR_END_POINT]/auth/oauth2/failure",
+      // );
+      const response = await account.getSession('current');
+      console.log(response);
+    } catch (error) {
+      throw error;
+    }
+  };
   useEffect(() => {
     if (user) {
       navigate('/admin');
@@ -61,11 +79,13 @@ const LoginPage = () => {
             </div>
             <div className="w-full rounded-[15px] md:w-[400px] bg-[#124ebb] h-fit shadow-sm">
               <div className="p-10 flex flex-col">
-                <h2 className="text-[20px] font-Bebas mb-1">Sign in</h2>
                 <div className="flex flex-col gap-y-3 mb-3">
+                  <span className="text-[12px] text-[rgba(255,255,255,0.7)]">
+                    Email Address
+                  </span>
                   <input
                     type="email"
-                    placeholder="Type here"
+                    placeholder="Email Address"
                     name="email"
                     className="input w-full text-[#001217]"
                     value={userData.email}
@@ -76,10 +96,13 @@ const LoginPage = () => {
                       })
                     }
                   />
+                  <span className="text-[12px] text-[rgba(255,255,255,0.7)]">
+                    Email Address
+                  </span>
                   <input
                     type="password"
                     name="password"
-                    placeholder="Type here"
+                    placeholder="Password"
                     className="input  w-full text-[#001217]"
                     value={userData.password}
                     onChange={(e) =>
@@ -99,7 +122,10 @@ const LoginPage = () => {
                 </button>
                 <div className="divider my-5">OR</div>
                 <div className="flex gap-2 flex-col md:flex-row">
-                  <button className="btn w-full md:w-1/2 bg-[#34A853] border-none flex items-center gap-2">
+                  <button
+                    className="btn w-full md:w-1/2 bg-[#34A853] border-none flex items-center gap-2"
+                    onClick={loginWithGoogle}
+                  >
                     <AiFillGoogleCircle className="text-[24px]" />
                     Google
                   </button>

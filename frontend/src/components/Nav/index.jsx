@@ -1,26 +1,32 @@
 import React, { useContext } from 'react';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { FiSend, FiUser, FiUsers } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import FormToggleContext from '../../contexts/FormToggleContext';
 import BulkModal from '../Modal';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Client, Account } from 'appwrite';
-
 const Nav = () => {
+  const navigate = useNavigate();
   const { modal, switchScreen } = useContext(FormToggleContext);
   const { dispatch } = useContext(AuthContext);
 
   const handleLogout = async () => {
-    const client = new Client();
-    const account = new Account(client);
-    client
-      .setEndpoint(import.meta.env.VITE_APPWRITE_ENDPOINT) // Your API Endpoint
-      .setProject(import.meta.env.VITE_PROJECT_ID);
-    await account.deleteSession('current');
-    dispatch({
-      type: 'LOGOUT',
-    });
+    try {
+      const client = new Client();
+      const account = new Account(client);
+      client
+        .setEndpoint(import.meta.env.VITE_APPWRITE_ENDPOINT) // Your API Endpoint
+        .setProject(import.meta.env.VITE_PROJECT_ID);
+      const response = await account.deleteSession('current');
+      if (response) {
+        dispatch({
+          type: 'LOGOUT',
+        });
+      }
+    } catch (error) {
+      navigate('/');
+    }
   };
   return (
     <>
@@ -69,21 +75,32 @@ const Nav = () => {
           </div>
         </nav>
         <div className="absolute flex gap-3 bottom-0 w-full bg-[white] p-5 h-[70px] items-center justify-between">
-          <button>
-            <img
-              src="https://cdn.hashnode.com/res/hashnode/image/upload/v1675531271955/ALEtNA1cM.png?auto=compress"
-              alt=""
-              className="object-fit w-[100px]"
-            />
-          </button>
-
-          <button>
-            <img
-              src="https://cdn.hashnode.com/res/hashnode/image/upload/v1643310978330/r3rwhcL29.png?w=200&h=200&fit=crop&crop=entropy&auto=compress,format&format=webp"
-              alt=""
-              className="object-fit w-[50px] h-[50px]"
-            />
-          </button>
+          <a
+            href="https://hashnode.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button>
+              <img
+                src="https://cdn.hashnode.com/res/hashnode/image/upload/v1675531271955/ALEtNA1cM.png?auto=compress"
+                alt=""
+                className="object-fit w-[100px]"
+              />
+            </button>
+          </a>
+          <a
+            href="https://appwrite.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button>
+              <img
+                src="https://cdn.hashnode.com/res/hashnode/image/upload/v1643310978330/r3rwhcL29.png?w=200&h=200&fit=crop&crop=entropy&auto=compress,format&format=webp"
+                alt=""
+                className="object-fit w-[50px] h-[50px]"
+              />
+            </button>
+          </a>
         </div>
       </div>
       <BulkModal modal={modal} />

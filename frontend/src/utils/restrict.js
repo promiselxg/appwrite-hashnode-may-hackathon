@@ -8,7 +8,7 @@ const numberWithComma = (e) => {
 };
 
 const alphaNumericAndSpecialChars = (e) => {
-  const result = e.target.value.replace(/[^0-9a-z@,!? ]/gi, '');
+  const result = e.target.value.replace(/[^0-9a-z@,!?. ]/gi, '');
   return result;
 };
 

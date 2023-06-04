@@ -1,11 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { FiMoreVertical } from 'react-icons/fi';
 import FormToggleContext from '../contexts/FormToggleContext';
 import BulkModal from '../components/Modal';
 import MobileHeader from '../components/Header';
+import { AuthContext } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const PhoneBookPage = () => {
   const { modal, switchScreen } = useContext(FormToggleContext);
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user || user === null) {
+      navigate('/');
+    }
+  }, [navigate, user]);
   return (
     <>
       <div className="">
