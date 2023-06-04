@@ -9,14 +9,19 @@ const LandingPage = () => {
         <div className="container mx-auto p-10  2xl:h-[650px] 2xl:w-[1400px] ">
           <div className="container  w-full flex justify-between">
             <div className="gap-2 font-Bebas text-[white] text-[30px]">
-              <Link to="/">APPWRITE</Link>
+              <Link
+                to="/"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-600"
+              >
+                sendSMS
+              </Link>
             </div>
             <div className="flex items-center gap-5">
               <Link to="/login" className="text-white font-Inter_600">
                 Sign in
               </Link>
               <button className="btn bg-[#ffb33f] hidden md:flex">
-                Start for Free
+                <a href="mailto:okeydeede@gmail.com">get quote</a>
               </button>
             </div>
           </div>
@@ -29,7 +34,9 @@ const LandingPage = () => {
                 Reach More Customers With Faster, More Reliable SMS Messaging.
               </h1>
               <div className="flex gap-5 py-10 md:py-5 flex-col md:flex-row w-full">
-                <button className="btn bg-[#ffb33f]">Start for Free</button>
+                <button className="btn bg-[#ffb33f]">
+                  <a href="mailto:okeydeede@gmail.com">get quote</a>
+                </button>
                 <button className="flex items-center gap-2 text-[#ccc] text-[12px] font-Poppins_600 justify-center md:justify-end">
                   Watch product tour{' '}
                   <FiPlayCircle className="text-[40px] shadow" />
@@ -50,8 +57,11 @@ const LandingPage = () => {
         <div className="container mx-auto p-10 md:p-20  2xl:w-[1400px]">
           <div className="flex items-center flex-col text-center">
             <div className="text-center justify-center">
-              <h1 className="text-[30px] font-Bebas text-[#001217]">
-                Send that Message with AppWrite
+              <h1 className="text-[30px] font-Bebas text-[#001217] ">
+                Send that Message with{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-600">
+                  sendSMS
+                </span>
               </h1>
               <p className="max-w-[320px] mx-auto text-center font-Inter_400 text-[12px]">
                 Easy-to-use, all-in-one platform to start,run,grow and simplify
@@ -61,7 +71,7 @@ const LandingPage = () => {
             <div className="flex w-full py-10">
               <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-5">
                 <div className="p-10 bg-[rgba(0,0,0,0.1)] rounded-[10px] shadow-sm">
-                  <h1 className="text-[15px] md:text-[20px] font-Bebas">
+                  <h1 className="text-[15px] md:text-[20px] font-Bebas text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-600">
                     Direct Messaging
                   </h1>
                   <p className="text-[12px] md:text-[14px] font-Inter_400 py-2">
@@ -70,7 +80,7 @@ const LandingPage = () => {
                   </p>
                 </div>
                 <div className="p-10 bg-[rgba(0,0,0,0.1)] rounded-[10px] shadow-sm">
-                  <h1 className="text-[15px] md:text-[20px] font-Bebas">
+                  <h1 className="text-[15px] md:text-[20px] font-Bebas text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-600">
                     Group Messaging
                   </h1>
                   <p className="text-[12px] md:text-[14px] font-Inter_400 py-2">
@@ -79,7 +89,7 @@ const LandingPage = () => {
                   </p>
                 </div>
                 <div className="p-10 bg-[rgba(0,0,0,0.1)] rounded-[10px] shadow-sm">
-                  <h1 className="text-[15px] md:text-[20px] font-Bebas">
+                  <h1 className="text-[15px] md:text-[20px] font-Bebas text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-600">
                     Schedule Messaging
                   </h1>
                   <p className="text-[12px] md:text-[14px] font-Inter_400 py-2">

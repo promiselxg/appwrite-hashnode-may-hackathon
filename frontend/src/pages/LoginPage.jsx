@@ -47,34 +47,64 @@ const LoginPage = () => {
   const loginWithGoogle = async (e) => {
     e.preventDefault();
     try {
-      // const response = await account.createOAuth2Session(
-      //   'google',
-      //   'http://localhost:5173/'
-      // );
-      // await appwrite.account.createOAuth2Session(
-      //     "auth0",
-      //     "http://localhost:5173/admin/auth/oauth2/success",
-      //     "[YOUR_END_POINT]/auth/oauth2/failure",
-      // );
-      const response = await account.getSession('current');
-      console.log(response);
+      await account.createOAuth2Session(
+        'google',
+        'http://localhost:5173/login', //success
+        'http://localhost:5173/login' //failure
+      );
     } catch (error) {
       throw error;
     }
   };
+
+  const loginWithGithub = async (e) => {
+    e.preventDefault();
+    try {
+      await account.createOAuth2Session(
+        'github',
+        'http://localhost:5173/login', //success
+        'http://localhost:5173/login' //failure
+      );
+    } catch (error) {
+      throw error;
+    }
+  };
+
   useEffect(() => {
     if (user) {
       navigate('/admin');
     }
   }, [navigate, user]);
+
+  useEffect(() => {
+    const getSession = async () => {
+      try {
+        if (account) {
+          const response = await account.getSession('current');
+          const userInfo = {
+            userid: response.userId,
+            token: response.providerAccessToken,
+          };
+          dispatch({ type: 'LOGIN_SUCCESS', payload: userInfo });
+          navigate('/admin');
+        }
+      } catch (error) {
+        return;
+      }
+    };
+    getSession();
+  }, [dispatch, navigate]);
+
   return (
     <>
       <div className="flex bg-[#001217] h-screen text-[#fff] items-center">
         <div className="container mx-auto">
           <div className="flex flex-col justify-center items-center px-[20px]">
             <div className="mb-5">
-              <Link to="/" className="font-Bebas text-[40px]">
-                <h1>APPWRITE</h1>
+              <Link to="/" className="font-Bebas text-[40px] ">
+                <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-600">
+                  sendSMS
+                </h1>
               </Link>
             </div>
             <div className="w-full rounded-[15px] md:w-[400px] bg-[#124ebb] h-fit shadow-sm">
@@ -123,13 +153,16 @@ const LoginPage = () => {
                 <div className="divider my-5">OR</div>
                 <div className="flex gap-2 flex-col md:flex-row">
                   <button
-                    className="btn w-full md:w-1/2 bg-[#34A853] border-none flex items-center gap-2"
+                    className="btn w-full md:w-1/2 bg-[#34A853] border-none flex items-center gap-2 hover:bg-[#34A853] hover:text-black"
                     onClick={loginWithGoogle}
                   >
                     <AiFillGoogleCircle className="text-[24px]" />
                     Google
                   </button>
-                  <button className="btn w-full md:w-1/2 bg-[#6e5494] border-none flex items-center gap-2">
+                  <button
+                    className="btn w-full md:w-1/2 bg-[#6e5494] border-none flex items-center gap-2"
+                    onClick={loginWithGithub}
+                  >
                     <AiOutlineGithub className="text-[24px]" />
                     Github
                   </button>
