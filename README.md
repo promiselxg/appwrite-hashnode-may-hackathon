@@ -32,5 +32,4 @@ Make sure to mention which Appwrite services you have used and how each service 
 
 ## Demo Link
 
-1.  [Demo App](https://sendsms.netlify.app)
-2.  [Video Illustration](https://res.cloudinary.com/promiselxg/video/upload/v1685933230/appwrite/sendSMS_hb7ble.mp4)
+[Demo App](https://sendsms.netlify.app)
