@@ -9,7 +9,7 @@ const databases = new sdk.Databases(client);
 
 //@desc     Single Messaging
 //@route    POST /api/v1/sms/single
-//@access   Public
+//@access   Private
 const sendSingleSMS = asyncHandler(async (req, res) => {
   try {
     const { country_code, phone_number, message } = req.body;
@@ -81,9 +81,34 @@ const sendSingleSMS = asyncHandler(async (req, res) => {
   }
 });
 
+//@desc     Get Contact List
+//@route    POST /api/v1/sms/bulk
+//@access   Private
+const getSingleSMS = asyncHandler(async (req, res) => {
+  try {
+    client
+      .setEndpoint(process.env.APP_ENDPOINT)
+      .setProject(process.env.PROJECT_ID)
+      .setKey(process.env.API_SECRET_KEY);
+    const { documents } = await databases.listDocuments(
+      process.env.DATABASE_ID,
+      '647a60fc987094c23e79'
+    );
+    return res.status(200).json({
+      status: true,
+      response: documents,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      status: false,
+      error,
+    });
+  }
+});
+
 //@desc     Bulk Messaging
 //@route    POST /api/v1/sms/bulk
-//@access   Public
+//@access   Private
 const sendBulkSMS = asyncHandler(async (req, res) => {
   client
     .setEndpoint(process.env.APP_ENDPOINT)
@@ -156,7 +181,7 @@ const sendBulkSMS = asyncHandler(async (req, res) => {
 
 //@desc     Create Contact List
 //@route    POST /api/v1/sms/bulk/contact
-//@access   Public
+//@access   Private
 const createContact = asyncHandler(async (req, res) => {
   if (!req.body.group_name || !req.file.originalname) {
     return res.status(400).json({
@@ -203,9 +228,9 @@ const createContact = asyncHandler(async (req, res) => {
   }
 });
 
-//@desc     Bulk Messaging
-//@route    POST /api/v1/sms/bulk
-//@access   Public
+//@desc     Get Contact List
+//@route    GET /api/v1/sms/group
+//@access   Private
 const listContactGroups = asyncHandler(async (req, res) => {
   try {
     client
@@ -228,10 +253,60 @@ const listContactGroups = asyncHandler(async (req, res) => {
   }
 });
 
+//@desc     Get Group Statistics
+//@route    GET /api/v1/sms/group/stats
+//@access   Private
+const getContactsGroupStats = asyncHandler(async (req, res) => {
+  try {
+    //  initialize appwrite with credentials
+    client
+      .setEndpoint(process.env.APP_ENDPOINT)
+      .setProject(process.env.PROJECT_ID)
+      .setKey(process.env.API_SECRET_KEY);
+    // get collection info
+    const { documents } = await databases.listDocuments(
+      process.env.DATABASE_ID,
+      '647b26b1d636fd4c9e91'
+    );
+    return res.status(200).json({
+      status: true,
+      documents,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      status: false,
+      error,
+    });
+  }
+});
+
+//@desc     Get Balance
+//@route    GET /api/v1/sms/balance
+//@access   Private
+const getSMSBalance = asyncHandler(async (req, res) => {
+  try {
+    const response = await axios.get(
+      `https://api.ng.termii.com/api/get-balance?api_key=${process.env.TERMII_API_KEY}`
+    );
+    return res.status(200).json({
+      status: true,
+      response: response.data,
+    });
+  } catch (error) {
+    return res.status(200).json({
+      status: true,
+      response: error.data,
+    });
+  }
+});
+
 //  export controllers
 module.exports = {
   sendSingleSMS,
+  getSingleSMS,
+  getSMSBalance,
   sendBulkSMS,
   createContact,
   listContactGroups,
+  getContactsGroupStats,
 };

@@ -24,7 +24,7 @@ const BulkSMSForm = () => {
       try {
         setIsLoading(true);
         const response = await axios.post(
-          'http://localhost:8081/api/v1/sms/bulk',
+          'https://appwrite.braga.com.ng/api/v1/sms/bulk',
           inputFields
         );
         if (response) {

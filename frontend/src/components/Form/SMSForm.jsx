@@ -37,7 +37,7 @@ const SMSForm = () => {
           inputFields.phone_number = inputFields.phone_number.slice(0, -1);
         }
         const response = await axios.post(
-          'http://localhost:8081/api/v1/sms/single',
+          'https://appwrite.braga.com.ng/api/v1/sms/single',
           inputFields
         );
         if (response) {

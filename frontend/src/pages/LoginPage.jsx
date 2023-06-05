@@ -49,8 +49,8 @@ const LoginPage = () => {
     try {
       await account.createOAuth2Session(
         'google',
-        'http://localhost:5173/login', //success
-        'http://localhost:5173/login' //failure
+        'https://sendsms.netlify.app/login', //success
+        'https://sendsms.netlify.app/login' //failure
       );
     } catch (error) {
       throw error;
@@ -62,8 +62,8 @@ const LoginPage = () => {
     try {
       await account.createOAuth2Session(
         'github',
-        'http://localhost:5173/login', //success
-        'http://localhost:5173/login' //failure
+        'https://sendsms.netlify.app/login', //success
+        'https://sendsms.netlify.app/login' //failure
       );
     } catch (error) {
       throw error;

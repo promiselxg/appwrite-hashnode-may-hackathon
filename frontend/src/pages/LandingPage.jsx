@@ -99,6 +99,52 @@ const LandingPage = () => {
                 </div>
               </div>
             </div>
+            <div className="flex flex-col w-full py-10 justify-center">
+              <h1 className="text-sm font-Poppins_400 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-600">
+                Powered by
+              </h1>
+              <div className="flex justify-center items-center gap-5 pt-2">
+                <a
+                  href="https://hashnode.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button>
+                    <img
+                      src="https://cdn.hashnode.com/res/hashnode/image/upload/v1675531271955/ALEtNA1cM.png?auto=compress"
+                      alt=""
+                      className="object-fit w-[100px]"
+                    />
+                  </button>
+                </a>
+                <a
+                  href="https://appwrite.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button>
+                    <img
+                      src="https://cdn.hashnode.com/res/hashnode/image/upload/v1643310978330/r3rwhcL29.png?w=200&h=200&fit=crop&crop=entropy&auto=compress,format&format=webp"
+                      alt=""
+                      className="object-fit w-[50px] h-[50px]"
+                    />
+                  </button>
+                </a>
+                <a
+                  href="https://termii.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button>
+                    <img
+                      src="https://termii.com/assets/images/logo.png"
+                      alt=""
+                      className="object-fit w-[100px] h-[30px]"
+                    />
+                  </button>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

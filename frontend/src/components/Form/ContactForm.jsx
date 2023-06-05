@@ -23,7 +23,7 @@ const ContactForm = () => {
       formData.append('files', files);
       formData.append('group_name', name);
       await axios.post(
-        `http://localhost:8081/api/v1/sms/bulk/contact`,
+        `https://appwrite.braga.com.ng/api/v1/sms/bulk/contact`,
         formData
       );
       Swal.fire({
