@@ -1,20 +1,10 @@
 # [Name of your Project]: [Appwrite](https://appwrite.io) [Hashnode](https://hashnode.com) Hackathon
 
 <img width="1128" alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1685933233/appwrite/sendSMS_-_sendsms.netlify.app_o7uiko.png">
+
 ## Team Details
 
-<!---
-
-Mention all team members, including yourself, in the following format
-
-- Name of Team Member 1 - @teammember1
-- Name of Team Member 2 - @teammember2
-- Name of Team Member 3 - @teammember3
-.
-.
-.
-
--->
+- Anuforo Okechukwu Deede - @promiselxg
 
 ## Description of Project
 
@@ -22,20 +12,15 @@ Mention all team members, including yourself, in the following format
 
 ## Tech Stack
 
-<!---
-
-Add the tech stack of your project in the following format:
-
-- Svelte
+- React
 - Appwrite Cloud
-    - Authentication
-    - Database
-    - Cloud Functions - Node.js
-- Vercel
+  - Authentication
+  - Database
+  - Storage
+- Netlify
+- Termii
 
 Make sure to mention which Appwrite services you have used and how each service helped you build the project.
-
--->
 
 ## Challenges We Faced
 
@@ -43,8 +28,9 @@ Make sure to mention which Appwrite services you have used and how each service 
 
 ## Public Code Repo
 
-<!--- Add a link to a public code repo in this section -->
+[Repository](https://github.com/promiselxg/appwrite-hashnode-may-hackathon)
 
 ## Demo Link
 
-<!--- Add a link to the demo recording of your project in this section -->
+1.  [Demo App](https://sendsms.netlify.app)
+2.  [Video Illustration](https://res.cloudinary.com/promiselxg/video/upload/v1685933230/appwrite/sendSMS_hb7ble.mp4)
