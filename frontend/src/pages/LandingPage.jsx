@@ -37,10 +37,13 @@ const LandingPage = () => {
                 <button className="btn bg-[#ffb33f]">
                   <a href="mailto:okeydeede@gmail.com">get quote</a>
                 </button>
-                <button className="flex items-center gap-2 text-[#ccc] text-[12px] font-Poppins_600 justify-center md:justify-end">
+                <label
+                  htmlFor="video"
+                  className="flex items-center gap-2 text-[#ccc] text-[12px] font-Poppins_600 justify-center md:justify-end cursor-pointer"
+                >
                   Watch product tour{' '}
                   <FiPlayCircle className="text-[40px] shadow" />
-                </button>
+                </label>
               </div>
             </div>
             <div className="w-full md:w-1/2 hidden md:flex">
@@ -148,6 +151,26 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+      <input type="checkbox" id="video" className="modal-toggle" />
+      <div className="modal bg-[rgba(0,0,0,0.75)]">
+        <div className="modal-box  rounded bg-[#1c1f26] border-[rgba(255,255,255,0.2)] border-[1px] text-[#ccc]">
+          <label
+            htmlFor="video"
+            className="btn btn-sm btn-circle absolute right-2 top-2 bg-transparent border-none text-[#d8c5c5] text-[1.3rem] hover:bg-transparent hover:text-black"
+          >
+            ✕
+          </label>
+          <div className="p-5 ">
+            <video controls width="100%" autoPlay={true}>
+              <source
+                src="https://res.cloudinary.com/promiselxg/video/upload/v1685933230/appwrite/sendSMS_hb7ble.mp4"
+                type="video/mp4"
+              />
+              Sorry, your browser doesnt support embedded videos.
+            </video>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
