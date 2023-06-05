@@ -31,11 +31,11 @@ const SMSForm = () => {
         });
         setLoading(false);
       } else {
+        setLoading(true);
         let phone = inputFields.phone_number.at(-1);
         if (isNaN(phone)) {
           inputFields.phone_number = inputFields.phone_number.slice(0, -1);
         }
-        setLoading(false);
         const response = await axios.post(
           'http://localhost:8081/api/v1/sms/single',
           inputFields
@@ -140,11 +140,7 @@ const SMSForm = () => {
                 }
               ></textarea>
             </div>
-            <button
-              className="btn disabled:cursor-not-allowed"
-              onClick={handleSubmit}
-              disabled={loading}
-            >
+            <button className="btn" onClick={handleSubmit} disabled={loading}>
               Send message
             </button>
           </div>

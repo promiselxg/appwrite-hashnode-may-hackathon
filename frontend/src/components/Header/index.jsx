@@ -26,7 +26,7 @@ const MobileHeader = () => {
       <div className="md:hidden w-full bg-[#011B33] h-[80px] flex justify-between items-center px-10 shadow-md text-white mb-5 ">
         <div>
           <Link to="/admin">
-            <h1 className="text-[30px] font-Bebas">Appwrite</h1>
+            <h1 className="text-[30px] font-Bebas">sendSMS</h1>
           </Link>
         </div>
         <div>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-const API_URL = 'http://localhost:8081/api/v1/sms/group';
-
+const host = 'http://localhost:8081';
 const useFetch = (url) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -11,7 +10,7 @@ const useFetch = (url) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`${API_URL}`);
+        const res = await axios.get(`${host}${url}`);
         setData(res.data);
       } catch (err) {
         setError(err);

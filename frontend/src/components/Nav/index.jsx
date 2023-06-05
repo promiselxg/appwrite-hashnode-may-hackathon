@@ -33,12 +33,13 @@ const Nav = () => {
       <div className="hidden md:flex md:flex-col md:w-[17%] bg-[#011B33] text-[#ccc] font-Inter_600 relative h-screen ">
         <div className="flex flex-col justify-center items-center p-10 gap-y-5 w-full">
           <Link to="/admin">
-            <h1>APPWRITE</h1>
+            <h1 className="font-Bebas text-[25px]">sendSMS</h1>
           </Link>
-          <div className="rounded-full h-[50px] w-[50px] bg-[yellow]"></div>
-          <h1 className="text-sm">Anuforo Okechukwu</h1>
+          <div className="rounded-full h-[50px] w-[50px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
+
           <button>
             <AiOutlineLogout
+              title="Logout"
               className="text-[30px] text-[#fff]"
               onClick={handleLogout}
             />
@@ -47,7 +48,7 @@ const Nav = () => {
         <nav className="flex flex-col px-5 gap-y-4">
           <div className="collapse">
             <input type="checkbox" className="peer" />
-            <div className="btn collapse-title mb-3 flex  gap-2 capitalize">
+            <div className="btn collapse-title mb-3 flex  gap-2 capitalize bg-gradient-to-r from-indigo-500 to-purple-500">
               <FiSend />
               Send Message
             </div>
@@ -71,6 +72,15 @@ const Nav = () => {
                 </span>
                 <span>Group SMS</span>
               </Link>
+              <label
+                onClick={handleLogout}
+                className="flex items-center gap-2 text-[#ccc] hover:text-white font-Inter_400 text-[14px] cursor-pointer"
+              >
+                <span>
+                  <AiOutlineLogout />
+                </span>
+                <span>Log-out</span>
+              </label>
             </div>
           </div>
         </nav>

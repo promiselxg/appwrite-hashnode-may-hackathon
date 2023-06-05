@@ -11,7 +11,7 @@ const BulkSMSForm = () => {
     country_code: '',
     message: '',
   });
-  const { data, loading } = useFetch();
+  const { data, loading } = useFetch(`/api/v1/sms/group`);
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (

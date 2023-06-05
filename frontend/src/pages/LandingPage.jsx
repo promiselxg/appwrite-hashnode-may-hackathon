@@ -81,7 +81,7 @@ const LandingPage = () => {
                 </div>
                 <div className="p-10 bg-[rgba(0,0,0,0.1)] rounded-[10px] shadow-sm">
                   <h1 className="text-[15px] md:text-[20px] font-Bebas text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-600">
-                    Group Messaging
+                    Bulk Messaging
                   </h1>
                   <p className="text-[12px] md:text-[14px] font-Inter_400 py-2">
                     Send direct sms to multiple numbers across any mobile
@@ -90,11 +90,11 @@ const LandingPage = () => {
                 </div>
                 <div className="p-10 bg-[rgba(0,0,0,0.1)] rounded-[10px] shadow-sm">
                   <h1 className="text-[15px] md:text-[20px] font-Bebas text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-600">
-                    Schedule Messaging
+                    Group Messaging
                   </h1>
                   <p className="text-[12px] md:text-[14px] font-Inter_400 py-2">
-                    Schedule and send personalized sms to individual or multiple
-                    numbers across any network.
+                    Send personalized sms to mulitple numbers in a particular
+                    campaign group.
                   </p>
                 </div>
               </div>
