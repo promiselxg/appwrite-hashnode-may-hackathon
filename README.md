@@ -55,6 +55,7 @@ An easy-to-use, all-in-one SMS application that sends sms messages to any mobile
 
 <img width="1128" alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1686338482/appwrite/upload_xjhtg0.png">
 In the upload phone numbers section(as seen in the attached image), the initial plan was for the user to select the contacts(stored as a .CSV file) enter the country code and click on the submit button, this would use appwrites  `Storage` service to upload and store the file. then when the owner of the application choose to send a bulk SMS, the application will read through the uploaded contact and send the message to the supplied phone numbers. i was able to upload to appwrite cloud but reading the uploaded file became a challange, this was because there was no generated URL which i can use to pass to my application as the only possible option was for me to first download the file then read through it. at the end i had to discard the option of uploading the file to storage but instead read through the selected file and store the values in Appwrite `Database` instead.
+NB: SMS delivery is not applicable to US,UK and Canada Phone numbers.
 
 ### Public Code Repo
 
