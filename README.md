@@ -1,4 +1,4 @@
-# [Name of your Project]: [Appwrite](https://appwrite.io) [Hashnode](https://hashnode.com) Hackathon
+# [sendSMS]: [Appwrite](https://appwrite.io) [Hashnode](https://hashnode.com) Hackathon
 
 <img width="1128" alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1685933233/appwrite/sendSMS_-_sendsms.netlify.app_o7uiko.png">
 
