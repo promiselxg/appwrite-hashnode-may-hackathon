@@ -8,7 +8,7 @@
 
 ### Description of Project
 
-An easy-to-use, all-in-one SMS application that sends sms messages to any mobile network. the app utilizes Appwrite's Authentication and Database services to authenticate and store user's data respectively.
+sendSMS is an easy-to-use, all-in-one SMS application that sends sms messages to any mobile network. the app utilizes Appwrite's Authentication and Database services to authenticate and store user data.
 
 - The Problem
   - The presence of a third force changed the dynamics of the campaign season of the just concluded Feb 25th, 2023 Nigerian Presidential election, the reason was that the candidature of the labor party presidential candidate motivated the Nigerian Youths. The Nigerian youths across the nation popularly known as "Obidients" gathered themselves together in different support groups with the aim of spreading the message of Mr Peter Obi, the presidential candidate of the Labor Party.
@@ -23,7 +23,7 @@ An easy-to-use, all-in-one SMS application that sends sms messages to any mobile
   - Databases
 - Netlify
 
-  - Netlify is a remote-first cloud computing company that offers a development platform that includes build, deploy, and serverless backend services for web applications and dynamic websites.
+  - Netlify is a remote-first cloud computing company that offers a development platform that includes building, deploy, and serverless backend services for web applications and dynamic websites.
 
 - Termii
   - Termii helps businesses use messaging channels to verify and authenticate customer transactions.
@@ -31,7 +31,7 @@ An easy-to-use, all-in-one SMS application that sends sms messages to any mobile
 ### React :
 
 - This is a javascript framework, it was used in the development of the applications frontend.
-  - TailwindCSS is a utility-first CSS framework, it was used in Positioning of text and images and general layout of the application.
+  - TailwindCSS is a utility-first CSS framework, it was used in the Positioning of text and images and the general layout of the application.
 
 ### Appwrite Cloud:
 
@@ -61,7 +61,7 @@ The application is grouped into three namely sections;
     <img width="1128"  alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1686337633/appwrite/Auth_vqawxi.png">
 - Individual or Group SMS section
 
-  - this section is where the authenticated user sends the sms message to an individual or multiple phone number. storing and retrival of the sent messages and phone numbers are handled by #appwrite's Databases service.
+  - this section is where the authenticated user sends the sms message to an individual or multiple phone numbers. storing and retrieval of the sent messages and phone numbers are handled by #appwrite's Databases service.
 
   ```
   const promise = databases.createDocument('[DATABASE_ID]', '[COLLECTION_ID]', '[DOCUMENT_ID]', {});
@@ -78,20 +78,20 @@ The application is grouped into three namely sections;
 
 - Group contact and file upload section
 
-  - here, the logged in user provides the country code and selects the file(containing the contacts) he or she wants to create a campaign group for. the accepted file format is .CSV.
+  - here, the logged-in user provides the country code and selects the file(containing the contacts) he or she wants to create a campaign group for. the accepted file format is . CSV.
 
   Contact.csv
   <img width="1128"  alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1686352653/appwrite/contact_bre8l4.png">
 
-  Create new Contact Screen
+  Create a new Contact Screen
   <img width="1128"  alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1686338482/appwrite/upload_xjhtg0.png">
 
 ### Challenges Faced
 
-In the upload phone numbers section(as seen in the attached image), the initial plan was for the user to select the contacts(stored as a .CSV file) enter the country code and click on the submit button, this would use appwrites `Storage` service to upload and store the file. then when the owner of the application choose to send a bulk SMS, the application will read through the uploaded contact and send the message to the supplied phone numbers. i was able to upload to appwrite cloud but reading the uploaded file became a challange, this was because there was no generated URL which i can use to pass to my application as the only possible option was for me to first download the file then read through it. at the end i had to discard the option of uploading the file to storage but instead read through the selected file and store the values in Appwrite `Database` instead.
+In the upload phone numbers section(as seen in the attached image), the initial plan was for the user to select the contacts(stored as a . CSV file) enter the country code, and click on the submit button, this would use [appwrites](https://appwrite.io) `Storage` service to upload and store the file. then when the owner of the application choose to send a bulk SMS, the application will read through the uploaded contact and send the message to the supplied phone numbers. I was able to upload it to appwrite cloud but reading the uploaded file became a challenge, this was because there was no generated URL that i can use to pass to my application as the only possible option was for me to first download the file then read through it. In the end, I had to discard the option of uploading the file to storage but instead read through the selected file and store the values in Appwrite `Database` instead.
 
 ```
-NB: SMS delivery is not applicable to US,UK and Canada Phone numbers.
+NB: SMS delivery is not applicable to US,UK, and Canada Phone numbers.
 
 ```
 
@@ -103,3 +103,5 @@ NB: SMS delivery is not applicable to US,UK and Canada Phone numbers.
 
 - [Demo App](https://sendsms.netlify.app) <br/>
 - [Video Illustration](https://res.cloudinary.com/promiselxg/video/upload/v1685933230/appwrite/sendSMS_hb7ble.mp4)
+
+[#Appwrite](https://appwrite.io) [ #AppwriteHackathon](https://hashnode.com/hackathons/appwrite?source=main-feed)
