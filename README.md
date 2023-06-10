@@ -1,4 +1,4 @@
-# [sendSMS]: [Appwrite](https://appwrite.io) [Hashnode](https://hashnode.com) Hackathon
+# sendSMS : [Appwrite](https://appwrite.io) [Hashnode](https://hashnode.com) Hackathon
 
 <img width="1128" alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1685933233/appwrite/sendSMS_-_sendsms.netlify.app_o7uiko.png">
 
@@ -58,7 +58,7 @@ The application is grouped into three namely sections;
 
 - The authentication section
   - This section is powered by Appwrite's authentication service, here the user can sign in to the application either via Email and Password or through OAuth authentication providers like Google or Github.
-    <img width="400" height="400" alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1686337633/appwrite/Auth_vqawxi.png">
+    <img width="1128"  alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1686337633/appwrite/Auth_vqawxi.png">
 - Individual or Group SMS section
 
   - this section is where the authenticated user sends the sms message to an individual or multiple phone number. storing and retrival of the sent messages and phone numbers are handled by #appwrite's Databases service.
@@ -71,22 +71,22 @@ The application is grouped into three namely sections;
   ```
 
   Single SMS Screen
-  <img width="500" height="400" alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1686351847/appwrite/single_khkzzf.png">
+  <img width="1128" alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1686351847/appwrite/single_khkzzf.png">
 
   Bulk SMS Screen
-  <img width="500" height="400" alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1686351846/appwrite/bulk_atphqd.png">
+  <img width="1128"  alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1686351846/appwrite/bulk_atphqd.png">
 
 - Group contact and file upload section
 
   - here, the logged in user provides the country code and selects the file(containing the contacts) he or she wants to create a campaign group for. the accepted file format is .CSV.
 
   Contact.csv
-  <img width="500" height="200" alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1686352653/appwrite/contact_bre8l4.png">
+  <img width="1128"  alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1686352653/appwrite/contact_bre8l4.png">
 
   Create new Contact Screen
-  <img width="500" height="350" alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1686338482/appwrite/upload_xjhtg0.png">
+  <img width="1128"  alt="image" src="https://res.cloudinary.com/promiselxg/image/upload/v1686338482/appwrite/upload_xjhtg0.png">
 
-### Challenges We Faced
+### Challenges Faced
 
 In the upload phone numbers section(as seen in the attached image), the initial plan was for the user to select the contacts(stored as a .CSV file) enter the country code and click on the submit button, this would use appwrites `Storage` service to upload and store the file. then when the owner of the application choose to send a bulk SMS, the application will read through the uploaded contact and send the message to the supplied phone numbers. i was able to upload to appwrite cloud but reading the uploaded file became a challange, this was because there was no generated URL which i can use to pass to my application as the only possible option was for me to first download the file then read through it. at the end i had to discard the option of uploading the file to storage but instead read through the selected file and store the values in Appwrite `Database` instead.
 
