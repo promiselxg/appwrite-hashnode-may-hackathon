@@ -8,7 +8,7 @@
 
 ### Description of Project
 
-sendSMS is an easy-to-use, all-in-one SMS application that sends sms messages to any mobile network. the app utilizes Appwrite's Authentication and Database services to authenticate and store user data.
+sendSMS is an easy-to-use, all-in-one SMS application that sends sms messages to any mobile network in Nigeria. the app utilizes Appwrite's Authentication and Database services to authenticate and store user data.
 
 - The Problem
   - The presence of a third force changed the dynamics of the campaign season of the just concluded Feb 25th, 2023 Nigerian Presidential election, the reason was that the candidature of the labor party presidential candidate motivated the Nigerian Youths. The Nigerian youths across the nation popularly known as "Obidients" gathered themselves together in different support groups with the aim of spreading the message of Mr Peter Obi, the presidential candidate of the Labor Party.
@@ -91,7 +91,7 @@ The application is grouped into three namely sections;
 In the upload phone numbers section(as seen in the attached image), the initial plan was for the user to select the contacts(stored as a . CSV file) enter the country code, and click on the submit button, this would use [appwrites](https://appwrite.io) `Storage` service to upload and store the file. then when the owner of the application choose to send a bulk SMS, the application will read through the uploaded contact and send the message to the supplied phone numbers. I was able to upload it to appwrite cloud but reading the uploaded file became a challenge, this was because there was no generated URL that i can use to pass to my application as the only possible option was for me to first download the file then read through it. In the end, I had to discard the option of uploading the file to storage but instead read through the selected file and store the values in Appwrite `Database` instead.
 
 ```
-NB: SMS delivery is not applicable to US,UK, and Canada Phone numbers.
+NB: SMS delivery is currently limited to Nigerian Phone Numbers.
 
 ```
 
